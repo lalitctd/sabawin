@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Sabawin</title>
+	<title>Workways</title>
 	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -28,7 +28,7 @@
 	<div id="particles-js"></div>
 	<!-- //particles -->
 	<div class="w3ls-pos">
-		<h1>Sabawin Admin Panel</h1>
+		<h1>Workways Admin Panel</h1>
 		<div class="w3ls-login box">
 			<!-- form starts here -->
 			 <h3 style="color: white;">{{ session()->pull('status')}}</h3>

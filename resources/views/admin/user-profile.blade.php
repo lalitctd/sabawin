@@ -24,7 +24,7 @@
                   <div class="card-body">
                     <div class="clearfix">
                       <div class="img-profile">
-                         <img src="{{ url('public/admin') }}/assets/images/faces/face2.jpg" class="img-thumbnail prof" alt="Cinque Terre" width="304" height="236">
+                         <img src="{{ url('public/admin') }}/assets/images/faces/face1.jpg" class="img-thumbnail prof" alt="Cinque Terre" width="304" height="236">
                          <label for="file-input" class="title" title="Change Profile Picture">
                             <i class="mdi mdi-cloud-upload btn-icon-prepend" style="font-size: 60px !important;"></i></label>
                            <input id="file-input" type="file"/ accept="image/*" class="author_image" name="employee_img">

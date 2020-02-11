@@ -17,66 +17,63 @@
                 </ul>
               </nav>
             </div>
-            
+
+            @if ($message = Session::get('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{$message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
             
             <div class="row">
-              <div class="col-6 grid-margin">
+
+              <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">User Role</h4>
+                    <div class="">
+                      <form class="forms-sample" method="post" action="{{url('admin/create-role-insert')}}">
+                        @csrf
+                      <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Role<sup class="text-danger">*</sup></label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Role like Admin/Editior/Finance**" required="" name="role_name">
+                          @error('role_name')
+                              <div class="text-danger">{{ $message }}</div>
+                          @enderror
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-gradient-primary mr-2 ">Submit</button>  
+                      </div>
+                      
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+            <div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">List of Roles</h4>
                     <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Assignee </th>
-                            <th> Subject </th>
-                            <th> Status </th>
-                            <th> Last Update </th>
-                            <th> Tracking ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="{{ url('public/admin') }}/assets/images/faces/face1.jpg" class="mr-2" alt="image"> David Grey </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">DONE</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ url('public/admin') }}/assets/images/faces/face2.jpg" class="mr-2" alt="image"> Stella Johnson </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">PROGRESS</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ url('public/admin') }}/assets/images/faces/face3.jpg" class="mr-2" alt="image"> Marina Michel </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">ON HOLD</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ url('public/admin') }}/assets/images/faces/face4.jpg" class="mr-2" alt="image"> John Doe </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REJECTED</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
+                      <table class="table table-hover">
+                        <tr>
+                          <th>SNo</th>
+                          <th>Role Name</th>
+                        </tr>
+                         @foreach($data as $item => $value)
+                         <tr>
+                           <td>{{$item+1}}</td>
+                           <td>{{$value['role_name']}}</td>
+                         </tr>
+                         @endforeach
                       </table>
                     </div>
                   </div>

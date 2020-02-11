@@ -43,7 +43,11 @@ Route::group(['prefix' => 'admin','namespace'=>'admin'], function () {
 
        Route::get('create-user',[ 'as' => 'create-user', 'uses' => 'UserController@index'])->middleware('auth');
 
+       Route::post('create-user-insert',[ 'as' => 'create-user-insert', 'uses' => 'UserController@createUserInsert'])->middleware('auth');
+
        Route::get('create-role',[ 'as' => 'create-role', 'uses' => 'UserController@createRole'])->middleware('auth');
+
+       Route::post('create-role-insert',[ 'as' => 'create-role-insert', 'uses' => 'UserController@createRoleInsert'])->middleware('auth');
 
        Route::get('logout','AuthController@logout');
     });

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,15 +12,11 @@ class DashboardController extends Controller
 {
 	public function __construct() {
 		if(Auth::id() == null) {
-			//echo "slkad";die();
 			return redirect('login')->with('status', 'Profile updated!');
 		}
     }
     public function index() {
-    	//$data = array('lalit'=>'pathak');
-    	//dd(session()->all());
-    	 $user = Auth::user();
-    	// dd($user);
+    	$user = Auth::user();
     	return view('admin/dashboard');
     }
 }
